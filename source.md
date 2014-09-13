@@ -105,17 +105,7 @@
         init(filename: String) {
             self.filename = filename
         }
-    }
-
----
-    class BlogPost {
-        var filename: String
-        lazy var image = Image()
-
-        init(filename: String) {
-            self.filename = filename
-        }
-    }
+    }•
 
     var post = BlogPost(filename: "sw2.md")
     post.image
@@ -177,12 +167,7 @@
 ---
     for x in xs {
         // ...
-    }
-
----
-    for x in xs {
-        // ...
-    }
+    }•
 
     var _g = xs.generate()
     while let x = _g.next() {
@@ -198,79 +183,34 @@
             var n = -1
             return GeneratorOf { ++n }
         }
-    }
-
----
-    class Integers: SequenceType {
-        func generate() -> GeneratorOf<Int> {
-            var n = -1
-            return GeneratorOf { ++n }
-        }
-    }
+    }•
 
     for i in Integers() {
         println(i)  // 0, 1, 2, 3, ...
     }
 
 ---
-    lazy()
-
----
-    lazy()
+    lazy()•
 
     var xs = [1, 2, 3]
-    xs.lazy()
-
----
-    lazy()
-
-    var xs = [1, 2, 3]
-    xs.lazy()
+    xs.lazy()•
 
     LazySequence
     LazyForwardCollection
     LazyRandomAccessCollection
 
 ---
-    var integers = lazy(Integers())
-
----
-    var integers = lazy(Integers())
+    var integers = lazy(Integers())•
 
     integers.filter
     integers.map
 
 ---
-    var x = integers
-
----
-    var x = integers \
-        .filter { $0 % 2 == 1 }
-
----
-    var x = integers \
-        .filter { $0 % 2 == 1 } \
-        .map { $0 * $0 }
-
----
-    var x = integers \
-        .filter { $0 % 2 == 1 } \
-        .map { $0 * $0 } \
-        .filter { $0 > 100 }
-
----
-    var x = integers \
-        .filter { $0 % 2 == 1 } \
-        .map { $0 * $0 } \
-        .filter { $0 > 100 } \
-        .first!
-
----
-    var x = integers \
-        .filter { $0 % 2 == 1 } \
-        .map { $0 * $0 } \
-        .filter { $0 > 100 } \
-        .first!
+    var x = integers• \
+        .filter { $0 % 2 == 1 }• \
+        .map { $0 * $0 }• \
+        .filter { $0 > 100 }• \
+        .first!•
 
     println(x)  // 121
 
@@ -316,68 +256,10 @@
     integers.filter { $0 % 2 == 1 } \
             .map { $0 * $0 } \
             .filter { $0 > 10 } \
-            .first!
+            .first!•
 
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0
-
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0 odd?
-
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0 odd?
-    1
-
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0 odd?
-    1 odd?
-
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0 odd?
-    1 odd? square
-
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0 odd?
-    1 odd? square threshold
-
----
-    integers.filter { $0 % 2 == 1 } \
-            .map { $0 * $0 } \
-            .filter { $0 > 10 } \
-            .first!
-
-    0 odd?
-    1 odd? square threshold
+    0• odd?•
+    1• odd?• square• threshold•
     2 odd?
     3 odd? square threshold
     4 odd?
@@ -404,11 +286,7 @@
 
 ---
     // without @autoclosure:
-    f({ x })
-
----
-    // without @autoclosure:
-    f({ x })
+    f({ x })•
 
     // with @autoclosure:
     f(x)
@@ -417,13 +295,7 @@
     func f() -> Bool {
 
         return true
-    }
-
----
-    func f() -> Bool {
-
-        return true
-    }
+    }•
 
     func g() -> Bool {
 
@@ -442,28 +314,10 @@
     }
 
 ---
-    func or
-
----
-    func or(left: Bool
-
----
-    func or(left: Bool, right: Bool)
-
----
-    func or(left: Bool, right: Bool) -> Bool
-
----
-    func or(left: Bool, right: Bool) -> Bool {
+    func or•(left: Bool•, right: Bool)• -> Bool• {
         if left {
             return left
-        }
-
----
-    func or(left: Bool, right: Bool) -> Bool {
-        if left {
-            return left
-        } else {
+        }• else {
             return right
         }
     }
@@ -478,19 +332,7 @@
         } else {
             return right
         }
-    }
-
----
-    func or(left: Bool,
-            right: Bool)
-    -> Bool {
-
-        if left {
-            return left
-        } else {
-            return right
-        }
-    }
+    }•
 
     println(or(f(), g()))
     // f, g, true
@@ -553,10 +395,7 @@
 # [fit] expressiveness
 
 ---
-    lazy var image = Image()
-
----
-    lazy var image = Image()
+    lazy var image = Image()•
 
     lazy var image = {
         Image(forFilename: self.filename)
@@ -565,12 +404,7 @@
 ---
     for x in xs {
         // ...
-    }
-
----
-    for x in xs {
-        // ...
-    }
+    }•
 
     var _g = xs.generate()
     while let x = _g.next() {
@@ -579,21 +413,10 @@
 
 ---
     // without @autoclosure:
-    f({ x })
-
----
-    // without @autoclosure:
-    f({ x })
+    f({ x })•
 
     // with @autoclosure:
-    f(x)
-
----
-    // without @autoclosure:
-    f({ x })
-
-    // with @autoclosure:
-    f(x)
+    f(x)•
 
     POWER!
 
